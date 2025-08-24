@@ -1,0 +1,2 @@
+dataset_name,file_path,file_name,analysis_timestamp,n_streamlines,n_points_total,length_mean,length_std,length_min,length_max,x_min,x_max,y_min,y_max,z_min,z_max,spatial_volume,initial_points,voxel_downsampled_points,final_point_cloud_size,downsample_ratio,max_points_param,voxel_size_param,max_dimension_param
+petersen_bilateral_combined,joint_analysis,joint_analysis,2025-08-24T15:32:07.965451,10674,799167,74.87043282743115,38.96932849907423,10,121,-61.042007,61.9675,-97.8566,10.793091,-48.4246,80.2867,1720219.4,799167,5000,5000,0.006256514595822901,5000,2.0,1

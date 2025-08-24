@@ -1,0 +1,104 @@
+{
+  "uniform": {
+    "5": {
+      "strategy": "uniform",
+      "k": 5,
+      "n_original": 5888,
+      "n_sampled": 1177,
+      "sampling_rate": 0.19989809782608695
+    },
+    "10": {
+      "strategy": "uniform",
+      "k": 10,
+      "n_original": 5888,
+      "n_sampled": 588,
+      "sampling_rate": 0.09986413043478261
+    }
+  },
+  "length_stratified": {
+    "5": {
+      "strategy": "length_stratified",
+      "k": 5,
+      "n_original": 5888,
+      "n_sampled": 1175,
+      "sampling_rate": 0.1995584239130435,
+      "length_strata": [
+        10.0,
+        50.0,
+        100.0,
+        100.0,
+        121.0
+      ]
+    },
+    "10": {
+      "strategy": "length_stratified",
+      "k": 10,
+      "n_original": 5888,
+      "n_sampled": 586,
+      "sampling_rate": 0.09952445652173914,
+      "length_strata": [
+        10.0,
+        50.0,
+        100.0,
+        100.0,
+        121.0
+      ]
+    }
+  },
+  "spatial_clustering": {
+    "5": {
+      "strategy": "spatial_clustering",
+      "k": 5,
+      "n_original": 5888,
+      "n_sampled": 956,
+      "sampling_rate": 0.16236413043478262,
+      "n_clusters": 588
+    },
+    "10": {
+      "strategy": "spatial_clustering",
+      "k": 10,
+      "n_original": 5888,
+      "n_sampled": 480,
+      "sampling_rate": 0.08152173913043478,
+      "n_clusters": 294
+    }
+  },
+  "density_based": {
+    "5": {
+      "strategy": "density_based",
+      "k": 5,
+      "n_original": 5888,
+      "n_sampled": 1177,
+      "sampling_rate": 0.19989809782608695,
+      "density_radius": 5.0,
+      "mean_density": 936.9110054347826
+    },
+    "10": {
+      "strategy": "density_based",
+      "k": 10,
+      "n_original": 5888,
+      "n_sampled": 588,
+      "sampling_rate": 0.09986413043478261,
+      "density_radius": 5.0,
+      "mean_density": 936.9110054347826
+    }
+  },
+  "topology_preserving": {
+    "5": {
+      "strategy": "topology_preserving",
+      "k": 5,
+      "n_original": 5888,
+      "n_sampled": 1166,
+      "sampling_rate": 0.19802989130434784,
+      "n_clusters": 20
+    },
+    "10": {
+      "strategy": "topology_preserving",
+      "k": 10,
+      "n_original": 5888,
+      "n_sampled": 580,
+      "sampling_rate": 0.09850543478260869,
+      "n_clusters": 20
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "analysis_timestamp": "20250824_154201",
+  "analysis_type": "fixed_persistence_visualization",
+  "hemisphere_comparison": {
+    "left_hemisphere": {
+      "n_streamlines": 5888,
+      "h0_features": 5000,
+      "h1_features": 2410,
+      "h1_max_persistence": 9.538850784301758
+    },
+    "right_hemisphere": {
+      "n_streamlines": 4786,
+      "h0_features": 5000,
+      "h1_features": 2300,
+      "h1_max_persistence": 8.471925735473633
+    }
+  },
+  "cross_hemisphere_distances": {
+    "H0": 0.04922882810452626,
+    "H1": 0.027135404309877296
+  },
+  "internal_variability": {
+    "left_hemisphere": {
+      "h0": {
+        "mean": 0.1949113830104306,
+        "std": 0.006707604109683989,
+        "min": 0.18764826616637104,
+        "max": 0.20204567507425053,
+        "n_samples": 10,
+        "total_attempted": 10,
+        "success_rate": 1.0
+      },
+      "h1": {
+        "mean": 0.09587217097257608,
+        "std": 0.0032124007739703776,
+        "min": 0.09113016326681264,
+        "max": 0.09987970458451015,
+        "n_samples": 10,
+        "total_attempted": 10,
+        "success_rate": 1.0
+      }
+    },
+    "right_hemisphere": {
+      "h0": {
+        "mean": 0.21055134932423875,
+        "std": 0.0,
+        "min": 0.21055134932423875,
+        "max": 0.21055134932423875,
+        "n_samples": 10,
+        "total_attempted": 10,
+        "success_rate": 1.0
+      },
+      "h1": {
+        "mean": 0.1030154097989701,
+        "std": 0.0,
+        "min": 0.1030154097989701,
+        "max": 0.1030154097989701,
+        "n_samples": 10,
+        "total_attempted": 10,
+        "success_rate": 1.0
+      }
+    }
+  },
+  "summary_metrics": {
+    "overall_internal_h1_mean": 0.09944379038577308,
+    "overall_internal_h1_std": 0.0042327561468892255,
+    "cross_hemisphere_h1": 0.027135404309877296,
+    "signal_to_noise_ratio": 0.2728717821858027,
+    "total_valid_samples": 20,
+    "total_attempted_samples": 20,
+    "overall_success_rate": 1.0
+  }
+}

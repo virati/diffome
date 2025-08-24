@@ -1,0 +1,68 @@
+{
+  "tractography": [
+    {
+      "dataset_name": "petersen_bilateral_combined",
+      "file_path": "joint_analysis",
+      "file_name": "joint_analysis",
+      "analysis_timestamp": "2025-08-24T15:32:07.965451",
+      "n_streamlines": 10674,
+      "n_points_total": 799167,
+      "length_mean": 74.87043282743115,
+      "length_std": 38.96932849907423,
+      "length_min": 10,
+      "length_max": 121,
+      "x_min": "-61.042007",
+      "x_max": "61.9675",
+      "y_min": "-97.8566",
+      "y_max": "10.793091",
+      "z_min": "-48.4246",
+      "z_max": "80.2867",
+      "spatial_volume": "1720219.4",
+      "initial_points": 799167,
+      "voxel_downsampled_points": 5000,
+      "final_point_cloud_size": 5000,
+      "downsample_ratio": 0.006256514595822901,
+      "max_points_param": 5000,
+      "voxel_size_param": 2.0,
+      "max_dimension_param": 1
+    }
+  ],
+  "tda": [
+    {
+      "dataset_name": "petersen_bilateral_combined",
+      "analysis_timestamp": "2025-08-24T15:32:07.965523",
+      "n_dimensions": 2,
+      "h0_n_features": 5000,
+      "h0_n_finite": 4999,
+      "h0_n_infinite": 1,
+      "h0_total_persistence": 10551.013212010264,
+      "h0_max_persistence": 11.933810234069824,
+      "h0_mean_persistence": 2.110624767355524,
+      "h0_std_persistence": 0.7587604238982046,
+      "h0_persistence_entropy": 8.45228213427555,
+      "h0_total_lifetime": 10551.013212010264,
+      "h0_normalized_persistence": 884.127785264105,
+      "h1_n_features": 2122,
+      "h1_n_finite": 2122,
+      "h1_n_infinite": 0,
+      "h1_total_persistence": 1383.2779967784882,
+      "h1_max_persistence": 26.887537956237793,
+      "h1_mean_persistence": 0.6518746450417003,
+      "h1_std_persistence": 0.9756428000455278,
+      "h1_persistence_entropy": 7.146340730233467,
+      "h1_total_lifetime": 1383.2779967784882,
+      "h1_normalized_persistence": 41.247717357584726,
+      "h1_h0_ratio": 0.4244848969793959,
+      "total_features": 7122,
+      "total_persistence_all": 11934.291208788753,
+      "max_persistence_all": 26.887537956237793
+    }
+  ],
+  "sampling": [],
+  "metadata": {
+    "creation_timestamp": "20250824_153225",
+    "n_tractography_analyses": 1,
+    "n_tda_analyses": 1,
+    "n_sampling_experiments": 0
+  }
+}

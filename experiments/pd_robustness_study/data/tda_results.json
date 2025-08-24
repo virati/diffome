@@ -1,0 +1,192 @@
+{
+  "uniform": {
+    "5": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7302.571216776967,
+        "max_persistence": 5.700366020202637,
+        "mean_persistence": 1.4608064046363207
+      },
+      "H1": {
+        "n_features": 2383,
+        "n_finite": 2383,
+        "n_infinite": 0,
+        "total_persistence": 934.6043617129326,
+        "max_persistence": 6.746059417724609,
+        "mean_persistence": 0.3921965428925441
+      }
+    },
+    "10": {
+      "H0": {
+        "n_features": 4250,
+        "n_finite": 4249,
+        "n_infinite": 1,
+        "total_persistence": 6057.485686421394,
+        "max_persistence": 4.1835103034973145,
+        "mean_persistence": 1.425626191202964
+      },
+      "H1": {
+        "n_features": 1982,
+        "n_finite": 1982,
+        "n_infinite": 0,
+        "total_persistence": 710.5602828264236,
+        "max_persistence": 5.569578170776367,
+        "mean_persistence": 0.35850670172877075
+      }
+    }
+  },
+  "length_stratified": {
+    "5": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7238.979429706931,
+        "max_persistence": 3.939000129699707,
+        "mean_persistence": 1.4480855030419946
+      },
+      "H1": {
+        "n_features": 2453,
+        "n_finite": 2453,
+        "n_infinite": 0,
+        "total_persistence": 924.776830136776,
+        "max_persistence": 7.964563369750977,
+        "mean_persistence": 0.3769983000965251
+      }
+    },
+    "10": {
+      "H0": {
+        "n_features": 4369,
+        "n_finite": 4368,
+        "n_infinite": 1,
+        "total_persistence": 6202.9627077281475,
+        "max_persistence": 3.286947727203369,
+        "mean_persistence": 1.4200921949927077
+      },
+      "H1": {
+        "n_features": 2051,
+        "n_finite": 2051,
+        "n_infinite": 0,
+        "total_persistence": 740.6939181685448,
+        "max_persistence": 4.515448093414307,
+        "mean_persistence": 0.36113794157413204
+      }
+    }
+  },
+  "spatial_clustering": {
+    "5": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7437.120166406035,
+        "max_persistence": 6.4682111740112305,
+        "mean_persistence": 1.4877215775967265
+      },
+      "H1": {
+        "n_features": 2371,
+        "n_finite": 2371,
+        "n_infinite": 0,
+        "total_persistence": 918.5375716686249,
+        "max_persistence": 8.97592544555664,
+        "mean_persistence": 0.3874051335590995
+      }
+    },
+    "10": {
+      "H0": {
+        "n_features": 4121,
+        "n_finite": 4120,
+        "n_infinite": 1,
+        "total_persistence": 5963.997750282288,
+        "max_persistence": 3.154758930206299,
+        "mean_persistence": 1.447572269485992
+      },
+      "H1": {
+        "n_features": 1930,
+        "n_finite": 1930,
+        "n_infinite": 0,
+        "total_persistence": 687.5049574375153,
+        "max_persistence": 5.414716482162476,
+        "mean_persistence": 0.35622018520078513
+      }
+    }
+  },
+  "density_based": {
+    "5": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7752.331409573555,
+        "max_persistence": 6.609678745269775,
+        "mean_persistence": 1.5507764372021515
+      },
+      "H1": {
+        "n_features": 2286,
+        "n_finite": 2286,
+        "n_infinite": 0,
+        "total_persistence": 966.8301934599876,
+        "max_persistence": 7.1029052734375,
+        "mean_persistence": 0.4229353427209045
+      }
+    },
+    "10": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7153.280758008361,
+        "max_persistence": 3.8186469078063965,
+        "mean_persistence": 1.4309423400696861
+      },
+      "H1": {
+        "n_features": 2355,
+        "n_finite": 2355,
+        "n_infinite": 0,
+        "total_persistence": 834.736832678318,
+        "max_persistence": 7.801458358764648,
+        "mean_persistence": 0.35445300750671677
+      }
+    }
+  },
+  "topology_preserving": {
+    "5": {
+      "H0": {
+        "n_features": 5000,
+        "n_finite": 4999,
+        "n_infinite": 1,
+        "total_persistence": 7488.760210454464,
+        "max_persistence": 5.344820976257324,
+        "mean_persistence": 1.4980516524213772
+      },
+      "H1": {
+        "n_features": 2378,
+        "n_finite": 2378,
+        "n_infinite": 0,
+        "total_persistence": 943.277740240097,
+        "max_persistence": 7.995792388916016,
+        "mean_persistence": 0.39666851986547397
+      }
+    },
+    "10": {
+      "H0": {
+        "n_features": 4429,
+        "n_finite": 4428,
+        "n_infinite": 1,
+        "total_persistence": 6268.438005313277,
+        "max_persistence": 3.286947727203369,
+        "mean_persistence": 1.4156364058973074
+      },
+      "H1": {
+        "n_features": 2082,
+        "n_finite": 2082,
+        "n_infinite": 0,
+        "total_persistence": 734.8435170650482,
+        "max_persistence": 7.296496629714966,
+        "mean_persistence": 0.35295077668830366
+      }
+    }
+  }
+}

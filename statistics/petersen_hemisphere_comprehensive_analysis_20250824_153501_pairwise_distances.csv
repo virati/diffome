@@ -1,0 +1,3 @@
+dataset1,dataset2,dimension,wasserstein_distance,bottleneck_distance,landscape_distance
+petersen_left_hemisphere,petersen_right_hemisphere,H0,0.04922882810452626,0.5695228576660156,3.7938853146834566
+petersen_left_hemisphere,petersen_right_hemisphere,H1,0.027135404309877296,1.066925048828125,4.161279950550778
