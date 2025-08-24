@@ -1,6 +1,7 @@
 import logging
 import diffome.viz
 from dipy.io.streamline import load_tractogram
+import numpy as np
 
 
 class Connectome:
@@ -21,7 +22,12 @@ class Connectome:
         if factor <= 1:
             logging.warning("Subsample factor should be greater than 1.")
             return self
-        self.streamlines = self._streamlines[::factor]
+        n_total_streamlines = len(self._streamlines)
+        n_keep_streamlines = n_total_streamlines // factor
+        random_indices = np.random.choice(
+            n_total_streamlines, n_keep_streamlines, replace=False
+        )
+        self.streamlines = self._streamlines[random_indices]
         return self
 
     def generate_synthetic_streamlines(self):

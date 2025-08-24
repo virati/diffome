@@ -19,7 +19,10 @@ bundles_filename, ref_anat_filename = get_file_formats()
 reference_anatomy = nib.load(ref_anat_filename)
 
 main_connectome = Connectome(bundles_filename[0], ref = reference_anatomy)
-main_connectome.subsample(factor=1000)
+for ii in range(10):
+    main_connectome.subsample(factor=1000)
+    barcode_analysis = BarCode(main_connectome)
+    barcode_analysis.calculate(do_plot = True)
 
-barcode_analysis = BarCode(main_connectome)
-barcode_analysis.calculate(do_plot = True)
+
+#%%
