@@ -79,3 +79,6 @@ statistics/
 
 # UV lock file (if using UV)
 uv.lock
+
+
+*.png
