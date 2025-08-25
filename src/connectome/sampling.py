@@ -23,18 +23,19 @@ class StreamlineSampler:
     methods to understand how different data subsets affect topological features.
     """
     
-    def __init__(self, streamlines, random_seed=42):
+    def __init__(self, streamlines, random_seed=None):
         """
         Initialize sampler with streamlines.
         
         Args:
             streamlines (list): List of streamline arrays (each Nx3)
-            random_seed (int): Random seed for reproducibility
+            random_seed (int, optional): Random seed for reproducibility. If None, uses random seed.
         """
         self.streamlines = streamlines
         self.n_streamlines = len(streamlines)
         self.random_seed = random_seed
-        np.random.seed(random_seed)
+        if random_seed is not None:
+            np.random.seed(random_seed)
         
         # Precompute streamline properties for efficient sampling
         self._compute_streamline_properties()
