@@ -2,7 +2,7 @@ import numpy as np
 from scipy.stats import wasserstein_distance
 
 
-def persistence_wasserstein(diagram1, diagram2, dimension):
+def persistence_wasserstein(diagram1, diagram2, dimension=1):
     d1 = (
         diagram1[dimension] if len(diagram1) > dimension else np.array([]).reshape(0, 2)
     )
