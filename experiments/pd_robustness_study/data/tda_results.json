@@ -96,20 +96,20 @@
     },
     "10": {
       "H0": {
-        "n_features": 4121,
-        "n_finite": 4120,
+        "n_features": 4092,
+        "n_finite": 4091,
         "n_infinite": 1,
-        "total_persistence": 5963.997750282288,
-        "max_persistence": 3.154758930206299,
-        "mean_persistence": 1.447572269485992
+        "total_persistence": 5873.321682468057,
+        "max_persistence": 3.382375717163086,
+        "mean_persistence": 1.435668951959926
       },
       "H1": {
-        "n_features": 1930,
-        "n_finite": 1930,
+        "n_features": 1868,
+        "n_finite": 1868,
         "n_infinite": 0,
-        "total_persistence": 687.5049574375153,
-        "max_persistence": 5.414716482162476,
-        "mean_persistence": 0.35622018520078513
+        "total_persistence": 668.8861848115921,
+        "max_persistence": 5.642174005508423,
+        "mean_persistence": 0.3580761160661628
       }
     }
   },
@@ -119,17 +119,17 @@
         "n_features": 5000,
         "n_finite": 4999,
         "n_infinite": 1,
-        "total_persistence": 7752.331409573555,
-        "max_persistence": 6.609678745269775,
-        "mean_persistence": 1.5507764372021515
+        "total_persistence": 7733.5199288874865,
+        "max_persistence": 5.75252628326416,
+        "mean_persistence": 1.5470133884551884
       },
       "H1": {
-        "n_features": 2286,
-        "n_finite": 2286,
+        "n_features": 2278,
+        "n_finite": 2278,
         "n_infinite": 0,
-        "total_persistence": 966.8301934599876,
-        "max_persistence": 7.1029052734375,
-        "mean_persistence": 0.4229353427209045
+        "total_persistence": 970.8894407749176,
+        "max_persistence": 6.188812255859375,
+        "mean_persistence": 0.4262025639925011
       }
     },
     "10": {
@@ -137,17 +137,17 @@
         "n_features": 5000,
         "n_finite": 4999,
         "n_infinite": 1,
-        "total_persistence": 7153.280758008361,
-        "max_persistence": 3.8186469078063965,
-        "mean_persistence": 1.4309423400696861
+        "total_persistence": 7169.07228204608,
+        "max_persistence": 4.203023433685303,
+        "mean_persistence": 1.434101276664549
       },
       "H1": {
-        "n_features": 2355,
-        "n_finite": 2355,
+        "n_features": 2379,
+        "n_finite": 2379,
         "n_infinite": 0,
-        "total_persistence": 834.736832678318,
-        "max_persistence": 7.801458358764648,
-        "mean_persistence": 0.35445300750671677
+        "total_persistence": 851.4117461442947,
+        "max_persistence": 7.790157318115234,
+        "mean_persistence": 0.3578864002287914
       }
     }
   },
@@ -157,35 +157,35 @@
         "n_features": 5000,
         "n_finite": 4999,
         "n_infinite": 1,
-        "total_persistence": 7488.760210454464,
-        "max_persistence": 5.344820976257324,
-        "mean_persistence": 1.4980516524213772
+        "total_persistence": 7434.421445950866,
+        "max_persistence": 5.823704242706299,
+        "mean_persistence": 1.4871817255352802
       },
       "H1": {
         "n_features": 2378,
         "n_finite": 2378,
         "n_infinite": 0,
-        "total_persistence": 943.277740240097,
-        "max_persistence": 7.995792388916016,
-        "mean_persistence": 0.39666851986547397
+        "total_persistence": 923.8343188762665,
+        "max_persistence": 4.8372087478637695,
+        "mean_persistence": 0.3884921441868236
       }
     },
     "10": {
       "H0": {
-        "n_features": 4429,
-        "n_finite": 4428,
+        "n_features": 4460,
+        "n_finite": 4459,
         "n_infinite": 1,
-        "total_persistence": 6268.438005313277,
-        "max_persistence": 3.286947727203369,
-        "mean_persistence": 1.4156364058973074
+        "total_persistence": 6357.874859988689,
+        "max_persistence": 3.4497029781341553,
+        "mean_persistence": 1.4258521776157635
       },
       "H1": {
-        "n_features": 2082,
-        "n_finite": 2082,
+        "n_features": 2120,
+        "n_finite": 2120,
         "n_infinite": 0,
-        "total_persistence": 734.8435170650482,
-        "max_persistence": 7.296496629714966,
-        "mean_persistence": 0.35295077668830366
+        "total_persistence": 739.406242609024,
+        "max_persistence": 6.767917633056641,
+        "mean_persistence": 0.3487765295325585
       }
     }
   }

@@ -18,19 +18,19 @@ LENGTH_STRATIFIED:
   H1 stability (CV): 0.126
 
 SPATIAL_CLUSTERING:
-  H1 features: 2150.5 ± 311.8
-  H1 stability (CV): 0.145
+  H1 features: 2119.5 ± 355.7
+  H1 stability (CV): 0.168
 
 DENSITY_BASED:
-  H1 features: 2320.5 ± 48.8
-  H1 stability (CV): 0.021
+  H1 features: 2328.5 ± 71.4
+  H1 stability (CV): 0.031
 
 TOPOLOGY_PRESERVING:
-  H1 features: 2230.0 ± 209.3
-  H1 stability (CV): 0.094
+  H1 features: 2249.0 ± 182.4
+  H1 stability (CV): 0.081
 
 
 Recommendations:
 --------------------
-Most robust strategy: density_based (CV = 0.021)
-Most stable k value: 5 (CV = 0.025)
+Most robust strategy: density_based (CV = 0.031)
+Most stable k value: 5 (CV = 0.026)

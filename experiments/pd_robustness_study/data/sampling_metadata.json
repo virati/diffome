@@ -58,8 +58,8 @@
       "strategy": "spatial_clustering",
       "k": 10,
       "n_original": 5888,
-      "n_sampled": 480,
-      "sampling_rate": 0.08152173913043478,
+      "n_sampled": 470,
+      "sampling_rate": 0.07982336956521739,
       "n_clusters": 294
     }
   },
@@ -88,16 +88,16 @@
       "strategy": "topology_preserving",
       "k": 5,
       "n_original": 5888,
-      "n_sampled": 1166,
-      "sampling_rate": 0.19802989130434784,
+      "n_sampled": 1165,
+      "sampling_rate": 0.19786005434782608,
       "n_clusters": 20
     },
     "10": {
       "strategy": "topology_preserving",
       "k": 10,
       "n_original": 5888,
-      "n_sampled": 580,
-      "sampling_rate": 0.09850543478260869,
+      "n_sampled": 577,
+      "sampling_rate": 0.09799592391304347,
       "n_clusters": 20
     }
   }
