@@ -45,3 +45,7 @@ for side in ['left','right']:
     xval = [item[0] for item in aggregate_barcode[side]]
     yval = [item[1] for item in aggregate_barcode[side]]
     plt.scatter(xval, yval,alpha=0.5)
+
+#%%
+# calculate distance between the aggregate persistence
+from diffome.tda.wasser import persistence_wasserstein
