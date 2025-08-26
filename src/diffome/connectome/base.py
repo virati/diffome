@@ -30,6 +30,10 @@ class Connectome:
         self.streamlines = self._streamlines[random_indices]
         return self
 
+    def clip_streamlines(self, n_clip: int = 100):
+        self.streamlines = self._streamlines[:n_clip]
+        return self
+
     def generate_synthetic_streamlines(self):
         # Placeholder for synthetic streamline generation logic
         return []

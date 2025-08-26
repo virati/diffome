@@ -30,10 +30,10 @@ tract_list = {'left': petersen_subatlas_left, 'right': petersen_subatlas_right,}
 barcode_stack = {key: [] for key in tract_list}
 for key, val in tract_list.items():
     main_connectome = Connectome(*val)
-    for ii in range(10):
+    for ii in range(100):
         main_connectome.subsample(factor=500)
         barcode_analysis = BarCode(main_connectome)
-        barcode_analysis.calculate(do_plot = False)
+        barcode_analysis.calculate(do_plot = False, ignore_streamlines=[ii])
         barcode_stack[key].append(barcode_analysis.barcode)
 
 #%%

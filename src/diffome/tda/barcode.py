@@ -12,9 +12,17 @@ class BarCode(TDAAnalysis):
     def __init__(self, input_connectome: Connectome):
         super().__init__(input_connectome)
 
-    def calculate(self, params: dict = None, do_plot=True) -> None:
+    def calculate(
+        self, params: dict = None, do_plot=True, ignore_streamlines=None
+    ) -> None:
+        if ignore_streamlines is None:
+            ignore_streamlines = []
         # calculate barcode on connectome
         active_streamlines = self.input_connectome.streamlines.streamlines
+        if len(ignore_streamlines) > 0:
+            active_streamlines = active_streamlines[
+                np.arange(len(active_streamlines)) not in ignore_streamlines
+            ]
         active_streamlines = np.concatenate(active_streamlines)
         print(f"Rips on {active_streamlines.shape} streamlines...")
 
