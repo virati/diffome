@@ -22,8 +22,12 @@ def pull_dipy_trk():
 #input_trk_left: Path = "/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_left.trk"
 #input_trk_right: Path = "/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_right.trk"
 
-input_trk_left: Path = "/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk"
-input_trk_right: Path = "/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_right.trk"
+#input_trk_left: Path = "/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk"
+#input_trk_right: Path = "/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_right.trk"
+
+input_trk_left: Path = "/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_left.trk"
+input_trk_right: Path = "/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk"
+
 
 #%%
 ref_anat_filename = 'same'
@@ -37,7 +41,7 @@ for key, val in tract_list.items():
     for ii in range(100):
         main_connectome.clip_streamlines(n_clip=100)
         barcode_analysis = BarCode(main_connectome)
-        barcode_analysis.calculate(do_plot = False, ignore_streamlines=[ii], downsample_points=100)
+        barcode_analysis.calculate(do_plot = False, ignore_streamlines=[ii], downsample_points=50)
         barcode_stack[key].append(barcode_analysis.barcode)
 
 #%%
@@ -55,7 +59,29 @@ for side in ['left','right']:
 # calculate distance between the aggregate persistence
 #from diffome.tda.wasser import persistence_wasserstein
 import numpy as np
-from gudhi.wasserstein.wasserstein import wasserstein_distance as wass_dist
+from gudhi.wasserstein import wasserstein_distance as wass_dist
 
-test = wass_dist(barcode_stack['left'][0], barcode_stack['right'][0], order=1., internal_p=2.)
+first_barcode = np.array([b for a,b in barcode_analysis.barcode])
+second_barcode = np.array([b for a,b in barcode_analysis.barcode])
+
+# let's check inside each side first
+sides = ['left','right']
+intra_dist = {key: [] for key in ['left', 'right']}
+for side in ['left','right']:
+    for ii in range(len(barcode_stack[side])):
+        first_barcode = np.array([b for a,b in barcode_stack[side][ii]])
+        for jj in range(ii+1, len(barcode_stack[side])):
+            if ii == jj:
+                continue
+            second_barcode = np.array([b for a,b in barcode_stack[side][jj]])
+            test = wass_dist(first_barcode, second_barcode)
+            intra_dist[side].append(test)
+#%%
+for side in sides:
+    plt.hist(intra_dist[side], bins=30, alpha=0.5)
+#%%
+# Comparing Across Sides
+first_barcode = np.array(aggregate_barcode['left'])
+second_barcode = np.array(aggregate_barcode['right'])
+test = wass_dist(first_barcode, second_barcode)
 print(test)
