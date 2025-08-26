@@ -11,8 +11,8 @@ def persistence_wasserstein(diagram1, diagram2, dimension=1):
     )
 
     # Remove infinite persistence features for Wasserstein computation
-    d1_finite = d1[d1[:, 1] != np.inf] if len(d1) > 0 else np.array([]).reshape(0, 2)
-    d2_finite = d2[d2[:, 1] != np.inf] if len(d2) > 0 else np.array([]).reshape(0, 2)
+    d1_finite = d1[d1[:, 1] != np.inf]
+    d2_finite = d2[d2[:, 1] != np.inf
 
     if len(d1_finite) == 0 and len(d2_finite) == 0:
         return 0.0

@@ -53,6 +53,9 @@ for side in ['left','right']:
 
 #%%
 # calculate distance between the aggregate persistence
-from diffome.tda.wasser import persistence_wasserstein
+#from diffome.tda.wasser import persistence_wasserstein
+import numpy as np
+from gudhi.wasserstein.wasserstein import wasserstein_distance as wass_dist
 
-persistence_wasserstein(aggregate_barcode['left'], aggregate_barcode['right'])
+test = wass_dist(barcode_stack['left'][0], barcode_stack['right'][0], order=1., internal_p=2.)
+print(test)

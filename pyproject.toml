@@ -9,4 +9,5 @@ dependencies = [
     "gudhi>=3.11.0",
     "matplotlib>=3.10.5",
     "nibabel>=5.3.2",
+    "pot>=0.9.5",
 ]
