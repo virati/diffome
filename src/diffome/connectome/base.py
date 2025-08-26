@@ -32,6 +32,8 @@ class Connectome:
 
     def clip_streamlines(self, n_clip: int = 100):
         self.streamlines = self._streamlines[:n_clip]
+
+        logging.info(f"Clipped to {n_clip} streamlines.")
         return self
 
     def generate_synthetic_streamlines(self):
