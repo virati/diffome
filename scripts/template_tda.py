@@ -23,7 +23,11 @@ trks = {f.stem: f for f in trk_dir.glob('*.trk')}
 
 #%%
 big_connectome = []
-do_fibers = trks.keys()#['MLF_R','MLF_L']
+do_fibers = trks.keys()
+do_fibers = ['MLF_R','MLF_L']
+do_fibers = ['ICP_R','ICP_L']
+do_fibers = ['UF_L','UF_R']
+do_fibers = ['UF_L', 'MLF_L']
 for fiber_name in do_fibers:
     main_connectome = Connectome(str(trks[fiber_name]),"same", bbox_valid_check=False)
     big_connectome.append(main_connectome)

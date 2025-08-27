@@ -24,7 +24,7 @@ input_trk_paths = {
     },
 }
 
-#%%
+#%%#
 ref_anat_filename = 'same'
 connectome_name = 'petersen'
 #petersen_subatlas_left = (input_trk_left, ref_anat_filename)
