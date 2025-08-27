@@ -20,8 +20,8 @@ big_connectome = []
 
 #do_fibers = ['ICP_R','ICP_L']
 #do_fibers = ['MLF_R','MLF_L']
-#do_fibers = ['UF_L','UF_R']
-do_fibers = ['UF_L', 'ICP_L']
+do_fibers = ['UF_L','UF_R']
+#do_fibers = ['UF_L', 'ICP_L']
 #do_fibers = trks.keys()
 for fiber_name in do_fibers:
     main_connectome = Connectome(str(trks[fiber_name]),"same", bbox_valid_check=False)
@@ -42,7 +42,12 @@ for stack in range(2):
 
 if plot_together:
     import matplotlib.pyplot as plt
+    plt.legend(do_fibers)
     plt.plot()
+
+## Final Cross Distance
+
+TDA_comp.calculate_cross_distance()
 #%%
 # Do Rendering
 full_render = ConnectomeRenderer(big_connectome)
