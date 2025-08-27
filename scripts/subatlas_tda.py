@@ -2,13 +2,9 @@
 %load_ext autoreload
 %autoreload 2
 #%%
-from pathlib import Path
 from diffome.connectome.base import Connectome
-from diffome.tda.barcode import BarCode
-import nibabel as nib
-import os
+from diffome.tda.compare import TDAComparison
 
-#%%
 input_trk_paths = {
     "petersen": {
         "left": ("/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_left.trk", "same"),
@@ -27,24 +23,23 @@ input_trk_paths = {
 #%%#
 ref_anat_filename = 'same'
 connectome_name = 'petersen'
-#petersen_subatlas_left = (input_trk_left, ref_anat_filename)
-#petersen_subatlas_right = (input_trk_right, ref_anat_filename)
-#tract_list = {'left': petersen_subatlas_left, 'right': petersen_subatlas_right,}
-
-tract_list = input_trk_paths[connectome_name]
-
-connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_list.values()]
 
 #%%
-from diffome.tda.compare import TDAComparison
+tract_list = input_trk_paths[connectome_name]
+connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_list.values()]
 TDA_comp = TDAComparison(connectomes)
+
 TDA_comp.calculate()
 TDA_comp.aggregate_barcodes().plot_aggregate_barcodes()
 #%%
-import matplotlib.pyplot as plt
+plot_together = True
+
 for stack in range(2):
-    TDA_comp.calculate_distance_distributions_inside(which_stack=stack, do_plot=True, hold_plot=True)
-plt.plot()
+    TDA_comp.calculate_distance_distributions_inside(which_stack=stack, do_plot=True, hold_plot=plot_together)
+
+if plot_together:
+    import matplotlib.pyplot as plt
+    plt.plot()
 #%%
 # final calculation
 TDA_comp.calculate_cross_distance()
