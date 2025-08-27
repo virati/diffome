@@ -8,16 +8,6 @@ from diffome.tda.barcode import BarCode
 import nibabel as nib
 import os
 
-from dipy.data.fetcher import (fetch_file_formats,
-                               get_file_formats)
-
-def pull_dipy_trk():
-    fetch_file_formats()
-    bundles_filename, ref_anat_filename = get_file_formats()
-    reference_anatomy = nib.load(ref_anat_filename)
-
-    return bundles_filename[0], reference_anatomy
-
 #%%
 input_trk_paths = {
     "petersen": {
@@ -43,12 +33,13 @@ connectome_name = 'petersen'
 
 tract_list = input_trk_paths[connectome_name]
 
+jack_num = 100
 barcode_stack = {key: [] for key in tract_list}
 barcode_stack_culprit = {key: [] for key in tract_list}
 for key, val in tract_list.items():
     main_connectome = Connectome(*val)
-    for ii in range(100):
-        main_connectome.clip_streamlines(n_clip=100)
+    for ii in range(jack_num):
+        main_connectome.clip_streamlines(n_clip=jack_num)
         barcode_analysis = BarCode(main_connectome)
         barcode_analysis.calculate(do_plot = False, ignore_streamlines=[ii], downsample_points=100)
         barcode_stack[key].append(barcode_analysis.barcode)
@@ -59,7 +50,7 @@ for key, val in tract_list.items():
 aggregate_barcode = {}
 import matplotlib.pyplot as plt
 for side in ['left','right']:
-    aggregate_barcode[side] = [[barcode_stack[side][iter][element][1] for element in range(len(barcode_stack[side][iter]))] for iter in range(10)]
+    aggregate_barcode[side] = [[barcode_stack[side][iter][element][1] for element in range(len(barcode_stack[side][iter]))] for iter in range(jack_num)]
     aggregate_barcode[side] = [item for sublist in aggregate_barcode[side] for item in sublist]
     xval = [item[0] for item in aggregate_barcode[side]]
     yval = [item[1] for item in aggregate_barcode[side]]
@@ -72,8 +63,8 @@ for side in ['left','right']:
 import numpy as np
 from gudhi.wasserstein import wasserstein_distance as wass_dist
 
-first_barcode = np.array([b for a,b in barcode_analysis.barcode])
-second_barcode = np.array([b for a,b in barcode_analysis.barcode])
+#first_barcode = np.array([b for a,b in barcode_analysis.barcode])
+#second_barcode = np.array([b for a,b in barcode_analysis.barcode])
 
 # let's check inside each side first
 sides = ['left','right']

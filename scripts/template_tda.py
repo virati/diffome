@@ -5,8 +5,7 @@
 from pathlib import Path
 from diffome.connectome.base import Connectome
 from diffome.tda.barcode import BarCode
-import nibabel as nib
-import os
+
 
 from dipy.data import fetch_bundle_atlas_hcp842
 
@@ -24,7 +23,7 @@ trks = {f.stem: f for f in trk_dir.glob('*.trk')}
 
 #%%
 big_connectome = []
-do_fibers = ['MLF_R','MLF_L']
+do_fibers = trks.keys()#['MLF_R','MLF_L']
 for fiber_name in do_fibers:
     main_connectome = Connectome(str(trks[fiber_name]),"same", bbox_valid_check=False)
     big_connectome.append(main_connectome)
@@ -32,6 +31,5 @@ for fiber_name in do_fibers:
 #%%
 # Do basic TDA stuff here
 
-#%%
 full_render = ConnectomeRenderer(big_connectome)
 full_render.render()
