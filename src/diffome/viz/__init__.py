@@ -1,5 +1,7 @@
 from dipy.viz import actor, window
 
+BUNDLE_COLOR = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0)]
+
 
 class ConnectomeRenderer:
     def __init__(self, connectome_list=None):
@@ -7,11 +9,16 @@ class ConnectomeRenderer:
             connectome_list = []
         self.connectome_list = connectome_list
 
-    def render(self):
+    def render(self, color_per_bundle=False):
         scene = window.Scene()
 
-        for connectome in self.connectome_list:
-            stream_actor = actor.line(connectome.streamlines.streamlines)
+        for cc, connectome in enumerate(self.connectome_list):
+            if color_per_bundle:
+                stream_actor = actor.line(
+                    connectome.streamlines.streamlines, BUNDLE_COLOR[cc]
+                )
+            else:
+                stream_actor = actor.line(connectome.streamlines.streamlines)
 
             scene.add(stream_actor)
 

@@ -116,14 +116,7 @@ class TDAComparison:
             plt.title(f"Intra Distance Distribution - Stack {which_stack}")
             plt.xlabel("Distance")
             plt.ylabel("Frequency")
-            plt.text(
-                0.5,
-                0.5,
-                f"KLD: {kl_div}",
-                ha="center",
-                va="center",
-                transform=plt.gca().transAxes,
-            )
+
             if not hold_plot:
                 plt.show()
 

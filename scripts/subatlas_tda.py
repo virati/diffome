@@ -26,11 +26,12 @@ input_trk_paths = {
 
 #%%#
 ref_anat_filename = 'same'
-connectome_name = 'petersen100'
+connectome_name = 'petersen'
 
 #%%
 tract_list = input_trk_paths[connectome_name]
-connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_list.values()]
+tract_list = ["/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk",]
+connectomes = [Connectome(val, "same").clip_streamlines(n_clip=100) for val in tract_list]
 TDA_comp = TDAComparison(connectomes)
 
 TDA_comp.calculate()
@@ -49,4 +50,4 @@ if plot_together:
 TDA_comp.calculate_cross_distance()
 #%%
 full_render = ConnectomeRenderer(connectomes)
-full_render.render()
+full_render.render(color_per_bundle=True)
