@@ -4,6 +4,7 @@ from diffome.tda.barcode import BarCode
 import matplotlib.pyplot as plt
 from gudhi.wasserstein import wasserstein_distance as wass_dist
 import numpy as np
+from scipy.stats import entropy
 
 
 class TDAComparison:
@@ -107,11 +108,22 @@ class TDAComparison:
                 )
                 test = wass_dist(first_barcode, second_barcode)
                 self.intra_dist.append(test)
+
+        # calculate KL Divergence for distributions
+        # kl_div = entropy(self.intra_dist)
         if do_plot:
             plt.hist(self.intra_dist, bins=30, alpha=0.5)
             plt.title(f"Intra Distance Distribution - Stack {which_stack}")
             plt.xlabel("Distance")
             plt.ylabel("Frequency")
+            plt.text(
+                0.5,
+                0.5,
+                f"KLD: {kl_div}",
+                ha="center",
+                va="center",
+                transform=plt.gca().transAxes,
+            )
             if not hold_plot:
                 plt.show()
 
