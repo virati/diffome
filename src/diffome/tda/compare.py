@@ -18,19 +18,23 @@ class TDAComparison:
         self.second_stack = None
         self.stacks = [self.first_stack, self.second_stack]
 
-    def calculate(self, do_idx=(0, 1), iterations=100):
+    def calculate(self, do_idx=(0, 1), iterations=100, downsample_points=100):
         first_stack = []
         second_stack = []
 
         for ii in range(iterations):
             first_stack.append(
                 BarCode(self.streams[do_idx[0]]).calculate(
-                    do_plot=False, ignore_streamlines=[ii], downsample_points=100
+                    do_plot=False,
+                    ignore_streamlines=[ii],
+                    downsample_points=downsample_points,
                 )
             )
             second_stack.append(
                 BarCode(self.streams[do_idx[1]]).calculate(
-                    do_plot=False, ignore_streamlines=[ii], downsample_points=100
+                    do_plot=False,
+                    ignore_streamlines=[ii],
+                    downsample_points=downsample_points,
                 )
             )
 

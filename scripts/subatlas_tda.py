@@ -4,6 +4,7 @@
 #%%
 from diffome.connectome.base import Connectome
 from diffome.tda.compare import TDAComparison
+from diffome.viz import ConnectomeRenderer
 
 input_trk_paths = {
     "petersen": {
@@ -44,3 +45,5 @@ if plot_together:
 # final calculation
 TDA_comp.calculate_cross_distance()
 #%%
+full_render = ConnectomeRenderer(connectomes)
+full_render.render()
