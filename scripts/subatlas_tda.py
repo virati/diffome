@@ -46,6 +46,9 @@ for stack in range(2):
     TDA_comp.calculate_distance_distributions_inside(which_stack=stack, do_plot=True, hold_plot=True)
 plt.plot()
 #%%
+# final calculation
+TDA_comp.calculate_cross_distance()
+#%%
 #%%
 # OLD---------------------------------------------------------------
 

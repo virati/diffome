@@ -104,3 +104,33 @@ class TDAComparison:
                 plt.show()
 
         return self
+
+    def calculate_cross_distance(self, do_idx=(0, 1), downsample_factor=50):
+        # Calculate w-distance between two connectomes *fully* without subsampling
+        first_full_connectome_barcode = (
+            BarCode(self.streams[do_idx[0]])
+            .calculate(
+                do_plot=False,
+                ignore_streamlines=[],
+                downsample_points=downsample_factor,
+            )
+            .barcode
+        )
+
+        second_full_connectome_barcode = (
+            BarCode(self.streams[do_idx[1]])
+            .calculate(
+                do_plot=False,
+                ignore_streamlines=[],
+                downsample_points=downsample_factor,
+            )
+            .barcode
+        )
+
+        first_barcode = np.array([b for a, b in first_full_connectome_barcode])
+        second_barcode = np.array([b for a, b in second_full_connectome_barcode])
+
+        test = wass_dist(first_barcode, second_barcode)
+        print(test)
+
+        return self
