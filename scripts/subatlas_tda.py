@@ -38,7 +38,9 @@ connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_li
 #%%
 from diffome.tda.compare import TDAComparison
 TDA_comp = TDAComparison(connectomes)
-TDA_comp.calculate().aggregate_barcodes().plot_aggregate_barcodes()
+TDA_comp.calculate()
+#%%
+TDA_comp.aggregate_barcodes().plot_aggregate_barcodes().calculate_distance_distributions_inside(do_plot=True)
 #%%
 # OLD
 

@@ -36,6 +36,7 @@ class TDAComparison:
 
         self.first_stack = first_stack
         self.second_stack = second_stack
+        self.stacks = [self.first_stack, self.second_stack]
         self.stack_idxs = do_idx
         self.jack_num = iterations
 
@@ -73,11 +74,12 @@ class TDAComparison:
             yval = [item[1] for item in stack]
             plt.scatter(xval, yval, alpha=0.05)
             plt.show()
+        return self
 
     def calculate_distance_distributions_inside(
         self, which_stack: int = 0, do_plot=False
     ):
-        if (self.stacks == None).any():
+        if None in self.stacks:
             raise ValueError("No stacks available for distance calculation.")
 
         self.intra_dist = [] * len(self.stacks)
