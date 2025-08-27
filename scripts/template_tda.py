@@ -36,10 +36,8 @@ TDA_comp.calculate(downsample_points=200)
 TDA_comp.aggregate_barcodes().plot_aggregate_barcodes()
 
 plot_together = True
-
 for stack in range(2):
     TDA_comp.calculate_distance_distributions_inside(which_stack=stack, do_plot=True, hold_plot=plot_together)
-#%%
 if plot_together:
     import matplotlib.pyplot as plt
     plt.legend(do_fibers)

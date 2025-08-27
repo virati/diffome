@@ -1,6 +1,10 @@
 import gudhi as gd
 from diffome.connectome.base import Connectome
 import numpy as np
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class TDAAnalysis:
@@ -35,7 +39,7 @@ class BarCode(TDAAnalysis):
         active_points = np.concatenate(active_streamlines)
         if downsample_points is not None:
             active_points = active_points[::downsample_points]
-        print(f"Rips on {active_points.shape} points...")
+        logging.info(f"Rips on {active_points.shape} points...")
 
         # Create a RipsComplex from the active streamlines
         rips_complex = gd.RipsComplex(points=active_points)
