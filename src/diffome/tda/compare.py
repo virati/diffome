@@ -18,9 +18,17 @@ class TDAComparison:
         self.second_stack = None
         self.stacks = [self.first_stack, self.second_stack]
 
-    def calculate(self, do_idx=(0, 1), iterations=100, downsample_points=100):
+    def calculate(
+        self, do_idx=(0, 1), iterations=100, downsample_points=100, print_stats=False
+    ):
         first_stack = []
         second_stack = []
+
+        # print out stats here to give an estimate of processing time...
+        if print_stats:
+            print(
+                f"Processing {iterations} iterations with downsampling to {downsample_points} points."
+            )
 
         for ii in range(iterations):
             first_stack.append(

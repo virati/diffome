@@ -11,6 +11,9 @@ input_trk_paths = {
         "left": ("/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_left.trk", "same"),
         "right": ("/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_right.trk", "same"),
     },
+    "petersen100":{
+        "right": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same")
+    },
     "hcp": {
         "left": ("/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk", "same"),
         "right": ("/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_right.trk", "same"),
@@ -23,7 +26,7 @@ input_trk_paths = {
 
 #%%#
 ref_anat_filename = 'same'
-connectome_name = 'petersen'
+connectome_name = 'petersen100'
 
 #%%
 tract_list = input_trk_paths[connectome_name]
