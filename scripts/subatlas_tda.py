@@ -33,6 +33,15 @@ connectome_name = 'petersen'
 
 tract_list = input_trk_paths[connectome_name]
 
+connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_list.values()]
+
+#%%
+from diffome.tda.compare import TDAComparison
+TDA_comp = TDAComparison(connectomes)
+TDA_comp.calculate().aggregate_barcodes().plot_aggregate_barcodes()
+#%%
+# OLD
+
 jack_num = 100
 barcode_stack = {key: [] for key in tract_list}
 barcode_stack_culprit = {key: [] for key in tract_list}

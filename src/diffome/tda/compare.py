@@ -18,7 +18,7 @@ class TDAComparison:
         self.second_stack = None
         self.stacks = [self.first_stack, self.second_stack]
 
-    def calculate(self, do_idx=(1, 2), iterations=100):
+    def calculate(self, do_idx=(0, 1), iterations=100):
         first_stack = []
         second_stack = []
 
@@ -39,22 +39,24 @@ class TDAComparison:
         self.stack_idxs = do_idx
         self.jack_num = iterations
 
+        return self
+
     def aggregate_barcodes(self):
         if self.first_stack is None or self.second_stack is None:
             raise ValueError("No barcodes to aggregate. Please run compare() first.")
 
         first_stack = [
             [
-                self.first_stack[iter][element][1]
-                for element in range(len(self.first_stack[iter]))
+                self.first_stack[iter].barcode[element][1]
+                for element in range(len(self.first_stack[iter].barcode))
             ]
             for iter in range(self.jack_num)
         ]
         first_stack = [item for sublist in first_stack for item in sublist]
         second_stack = [
             [
-                self.second_stack[iter][element][1]
-                for element in range(len(self.second_stack[iter]))
+                self.second_stack[iter].barcode[element][1]
+                for element in range(len(self.second_stack[iter].barcode))
             ]
             for iter in range(self.jack_num)
         ]
@@ -62,6 +64,8 @@ class TDAComparison:
 
         self.first_agg = first_stack
         self.second_agg = second_stack
+
+        return self
 
     def plot_aggregate_barcodes(self):
         for stack in [self.first_agg, self.second_agg]:
@@ -86,7 +90,7 @@ class TDAComparison:
                 test = wass_dist(first_barcode, second_barcode)
                 self.intra_dist[which_stack].append(test)
         if do_plot:
-            plt.hist(self.intra_dist[which_stack], bins=30, alpha=0.5)
+            plt.hist(self.intra_dist[which_stack], bins=30, alpha=0.05)
             plt.title(f"Intra Distance Distribution - Stack {which_stack}")
             plt.xlabel("Distance")
             plt.ylabel("Frequency")
