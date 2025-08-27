@@ -77,25 +77,30 @@ class TDAComparison:
         return self
 
     def calculate_distance_distributions_inside(
-        self, which_stack: int = 0, do_plot=False
+        self, which_stack: int = 0, do_plot=False, hold_plot=False
     ):
         if None in self.stacks:
             raise ValueError("No stacks available for distance calculation.")
 
         self.intra_dist = [] * len(self.stacks)
         for ii in range(len(self.stacks[which_stack])):
-            first_barcode = np.array([b for a, b in self.stacks[which_stack][ii]])
+            first_barcode = np.array(
+                [b for a, b in self.stacks[which_stack][ii].barcode]
+            )
             for jj in range(ii + 1, len(self.stacks[which_stack])):
                 if ii == jj:
                     continue
-                second_barcode = np.array([b for a, b in self.stacks[which_stack][jj]])
+                second_barcode = np.array(
+                    [b for a, b in self.stacks[which_stack][jj].barcode]
+                )
                 test = wass_dist(first_barcode, second_barcode)
-                self.intra_dist[which_stack].append(test)
+                self.intra_dist.append(test)
         if do_plot:
-            plt.hist(self.intra_dist[which_stack], bins=30, alpha=0.05)
+            plt.hist(self.intra_dist, bins=30, alpha=0.5)
             plt.title(f"Intra Distance Distribution - Stack {which_stack}")
             plt.xlabel("Distance")
             plt.ylabel("Frequency")
-            plt.show()
+            if not hold_plot:
+                plt.show()
 
         return self

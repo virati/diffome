@@ -39,10 +39,15 @@ connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for val in tract_li
 from diffome.tda.compare import TDAComparison
 TDA_comp = TDAComparison(connectomes)
 TDA_comp.calculate()
+TDA_comp.aggregate_barcodes().plot_aggregate_barcodes()
 #%%
-TDA_comp.aggregate_barcodes().plot_aggregate_barcodes().calculate_distance_distributions_inside(do_plot=True)
+import matplotlib.pyplot as plt
+for stack in range(2):
+    TDA_comp.calculate_distance_distributions_inside(which_stack=stack, do_plot=True, hold_plot=True)
+plt.plot()
 #%%
-# OLD
+#%%
+# OLD---------------------------------------------------------------
 
 jack_num = 100
 barcode_stack = {key: [] for key in tract_list}
