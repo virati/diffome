@@ -1,6 +1,8 @@
 from dipy.viz import actor, window
+import matplotlib.cm as cm
 
-BUNDLE_COLOR = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0)]
+# BUNDLE_COLOR = [(0.0, 0.0, 1.0), (1.0, 0.0, 0.0)]
+BUNDLE_COLOR = cm.get_cmap("tab10")
 
 
 class ConnectomeRenderer:
@@ -15,7 +17,7 @@ class ConnectomeRenderer:
         for cc, connectome in enumerate(self.connectome_list):
             if color_per_bundle:
                 stream_actor = actor.line(
-                    connectome.streamlines.streamlines, BUNDLE_COLOR[cc]
+                    connectome.streamlines.streamlines, BUNDLE_COLOR(cc)
                 )
             else:
                 stream_actor = actor.line(connectome.streamlines.streamlines)
