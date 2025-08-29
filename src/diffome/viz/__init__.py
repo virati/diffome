@@ -1,17 +1,18 @@
 from dipy.viz import actor, window
 import matplotlib.cm as cm
+from typing import List
 
 # BUNDLE_COLOR = [(0.0, 0.0, 1.0), (1.0, 0.0, 0.0)]
 BUNDLE_COLOR = cm.get_cmap("tab10")
 
 
 class ConnectomeRenderer:
-    def __init__(self, connectome_list=None):
+    def __init__(self, connectome_list: List = None):
         if connectome_list is None:
             connectome_list = []
         self.connectome_list = connectome_list
 
-    def render(self, color_per_bundle=False):
+    def render(self, color_per_bundle=False, connectome_list=None):
         scene = window.Scene()
 
         for cc, connectome in enumerate(self.connectome_list):

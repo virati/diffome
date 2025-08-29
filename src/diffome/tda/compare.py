@@ -81,11 +81,20 @@ class TDAComparison:
 
         return self
 
-    def plot_aggregate_barcodes(self):
+    def plot_aggregate_barcodes(self, atomic_plots=False):
         for stack in [self.first_agg, self.second_agg]:
             xval = [item[0] for item in stack]
             yval = [item[1] for item in stack]
+
             plt.scatter(xval, yval, alpha=0.05)
+            if atomic_plots:
+                plt.show()
+
+        if not atomic_plots:
+            plt.title("Aggregate Barcodes")
+            plt.xlabel("Birth")
+            plt.ylabel("Death")
+            plt.legend(["First Connectome", "Second Connectome"])
             plt.show()
         return self
 

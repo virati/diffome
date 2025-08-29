@@ -12,7 +12,8 @@ input_trk_paths = {
         "right": ("/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_right.trk", "same"),
     },
     "petersen100":{
-        "right": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same")
+        "right": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same"),
+        "left": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same")
     },
     "hcp": {
         "left": ("/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk", "same"),
@@ -26,12 +27,12 @@ input_trk_paths = {
 
 #%%#
 ref_anat_filename = 'same'
-connectome_name = 'petersen'
+connectome_name = 'mgh'
 
 #%%
 tract_list = input_trk_paths[connectome_name]
-tract_list = ["/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk",]
-connectomes = [Connectome(val, "same").clip_streamlines(n_clip=100) for val in tract_list]
+#tract_list = ["/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_right.trk", "/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk",]
+connectomes = [Connectome(*val).clip_streamlines(n_clip=100) for key, val in tract_list.items()]
 TDA_comp = TDAComparison(connectomes)
 
 TDA_comp.calculate()
@@ -50,4 +51,6 @@ if plot_together:
 TDA_comp.calculate_cross_distance()
 #%%
 full_render = ConnectomeRenderer(connectomes)
-full_render.render(color_per_bundle=True)
+full_render.render(color_per_bundle = True, connectome_list = [1,2,3])
+
+#full_render.render(color_per_bundle=True)
