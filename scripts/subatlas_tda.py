@@ -12,26 +12,26 @@ input_trk_paths = {
         "right": ("/home/virati/Data/postdoc/connectome_transfer/petersen_top/petersen_pd_top_right.trk", "same"),
     },
     "petersen100":{
-        "right": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same"),
-        "left": ("/home/virati/Data/postdoc/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same")
+        "right": ("/home/virati/Data/postdoc/connectomes/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same"),
+        "left": ("/home/virati/Data/postdoc/connectomes/subatlases/july_develop_petersen/july_develop_petersen_100PD_top_right.trk", "same")
     },
     "hcp": {
-        "left": ("/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk", "same"),
-        "right": ("/home/virati/Data/postdoc/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_right.trk", "same"),
+        "left": ("/home/virati/Data/postdoc/connectomes/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_left.trk", "same"),
+        "right": ("/home/virati/Data/postdoc/connectomes/subatlases/july_run_hcp_bilat/july_run_hcp_bilat_100_mirrorPD_top_right.trk", "same"),
     },
     "mgh": {
-        "left": ("/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_left.trk", "same"),
-        "right": ("/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk", "same"),
+        "left": ("/home/virati/Data/postdoc/connectomes/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_left.trk", "same"),
+        "right": ("/home/virati/Data/postdoc/connectomes/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100_mirrorPD_top_right.trk", "same"),
     },
     "mgh100":{
-        "left": ("/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100PD_top_right.trk", "same"),
-        "right": ("/home/virati/Data/postdoc/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100PD_top_right.trk", "same"),
+        "left": ("/home/virati/Data/postdoc/connectomes/subatlconnectomes/ases/july_run_mgh_bilat/july_run_mgh_bilat_100PD_top_right.trk", "same"),
+        "right": ("/home/virati/Data/postdoc/connectomes/subatlases/july_run_mgh_bilat/july_run_mgh_bilat_100PD_top_right.trk", "same"),
     }
 }
 
 #%%#
 ref_anat_filename = 'same'
-connectome_name = 'mgh100'
+connectome_name = 'hcp'
 
 #%%
 tract_list = input_trk_paths[connectome_name]
@@ -57,11 +57,11 @@ TDA_comp.calculate_cross_distance()
 
 #%%
 #overlay:
-#connectomes.append(Connectome("/home/virati/Data/postdoc/connectomes/trks/hcp_6k.trk", "same", bbox_valid_check=False).subsample(100))
+connectomes.append(Connectome("/home/virati/Data/postdoc/connectomes/trks/hcp_6k.trk", "same", bbox_valid_check=False).subsample(100))
 
 #%%
 full_render = ConnectomeRenderer(connectomes)
-full_render.render(color_per_bundle = True, do_connectomes = [0,1], show_template=False)
+full_render.render(color_per_bundle = True, do_connectomes = [0,1], show_template=True)
 #full_render.render(color_per_bundle=False, do_connectomes=[2], alpha=0.04)
 from dipy.viz import window
 window.show(full_render.scene, size=(600, 600), reset_camera=False)
