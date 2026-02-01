@@ -1,36 +1,66 @@
-import gudhi as gd
+from typing import Optional, Any
 from diffome.connectome.base import Connectome
-import numpy as np
+from diffome.tda.persistence import PersistenceComputer, PersistenceDiagramPlotter
 
 
 class TDAAnalysis:
+    """Base class for topological data analysis."""
+
     def __init__(self, input_connectome: Connectome):
+        """Initialize TDA analysis with a connectome.
+
+        Args:
+            input_connectome: Connectome object to analyze
+        """
         self.input_connectome = input_connectome
+        self.result = None
 
 
 class BarCode(TDAAnalysis):
+    """Barcode analysis using persistent homology."""
+
     def __init__(self, input_connectome: Connectome):
+        """Initialize barcode analysis.
+
+        Args:
+            input_connectome: Connectome object to analyze
+        """
         super().__init__(input_connectome)
+        self.barcode = None
+        self.computer = PersistenceComputer()
+        self.plotter = PersistenceDiagramPlotter()
 
-    def calculate(self, params: dict = None, do_plot=True) -> None:
-        # calculate barcode on connectome
-        active_streamlines = self.input_connectome.streamlines.streamlines
-        active_streamlines = np.concatenate(active_streamlines)
-        print(f"Rips on {active_streamlines.shape} streamlines...")
+    def calculate(self, params: Optional[dict] = None, do_plot: bool = True):
+        """Calculate persistence barcode for the connectome.
 
-        # Create a RipsComplex from the active streamlines
-        rips_complex = gd.RipsComplex(points=active_streamlines)
+        Args:
+            params: Optional parameters for computation
+            do_plot: Whether to plot the persistence diagram
 
-        # Generate the simplex tree
-        simplex_tree = rips_complex.create_simplex_tree(max_dimension=2)
+        Returns:
+            Self for method chaining
+        """
+        # Extract point cloud from connectome
+        points = self.input_connectome.get_points()
 
-        # Compute the persistence
-        persistence = simplex_tree.persistence()
-        gd.plot_persistence_diagram(persistence)
+        if points is None:
+            raise ValueError("No points available. Ensure connectome is properly loaded and subsampled.")
 
-        self.barcode = persistence
+        # Compute persistence
+        max_dimension = 2
+        if params and "max_dimension" in params:
+            max_dimension = params["max_dimension"]
+
+        self.barcode = self.computer.compute_rips_persistence(points, max_dimension)
+
+        # Plot if requested
+        if do_plot:
+            self.plot_barcode()
 
         return self
 
     def plot_barcode(self):
-        pass
+        """Plot the computed persistence diagram."""
+        if self.barcode is None:
+            raise ValueError("No barcode computed. Call calculate() first.")
+        self.plotter.plot(self.barcode)
