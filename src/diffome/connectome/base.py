@@ -47,11 +47,11 @@ class Connectome(PointCloud):
         self.streamlines = self._streamlines[::factor]
         return self
 
-    def get_points(self):
+    def get_points(self) -> Optional[Any]:
         """Extract point cloud from streamlines.
 
         Returns:
-            Numpy array of points from streamlines
+            Numpy array of points from streamlines or None if no streamlines
         """
         if self.streamlines is None:
             logging.warning("No subsampled streamlines available. Call subsample() first.")

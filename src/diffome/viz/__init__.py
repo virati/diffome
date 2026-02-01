@@ -1,4 +1,5 @@
 """Visualization components for diffome."""
+from typing import Any
 from diffome.core.interfaces import Renderer
 
 
@@ -14,7 +15,7 @@ def create_streamline_renderer() -> Renderer:
 class StreamlineRenderer(Renderer):
     """Renderer for streamline data visualization."""
 
-    def render(self, data):
+    def render(self, data: Any) -> None:
         """Prepare streamline data for rendering.
 
         Args:
@@ -23,7 +24,7 @@ class StreamlineRenderer(Renderer):
         # Placeholder for rendering logic
         self.rendered_data = data
 
-    def display(self, data):
+    def display(self, data: Any) -> None:
         """Display the streamline data.
 
         Args:
@@ -36,7 +37,7 @@ class StreamlineRenderer(Renderer):
 class PersistenceDiagramRenderer(Renderer):
     """Renderer for persistence diagrams."""
 
-    def render(self, data):
+    def render(self, data: Any) -> None:
         """Prepare persistence diagram for rendering.
 
         Args:
@@ -44,7 +45,7 @@ class PersistenceDiagramRenderer(Renderer):
         """
         self.rendered_data = data
 
-    def display(self, data):
+    def display(self, data: Any) -> None:
         """Display the persistence diagram.
 
         Args:

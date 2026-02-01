@@ -30,7 +30,7 @@ class BarCode(TDAAnalysis):
         self.computer = PersistenceComputer()
         self.plotter = PersistenceDiagramPlotter()
 
-    def calculate(self, params: Optional[dict] = None, do_plot: bool = True):
+    def calculate(self, params: Optional[dict] = None, do_plot: bool = True) -> "BarCode":
         """Calculate persistence barcode for the connectome.
 
         Args:
