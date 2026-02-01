@@ -2,6 +2,16 @@
 
 Python library to compare connectomes in various ways.
 
+## Performance Optimizations
+
+The library includes significant performance optimizations for streamline-based topological data analysis:
+
+- **Sparse Rips Complex**: Limits edge creation to nearby points, reducing computation from O(n²) to sparse graph complexity
+- **Edge Collapse**: Removes redundant edges while preserving topology
+- **Up to 188x speedup** on typical datasets compared to dense Rips construction
+
+See [`docs/performance.md`](docs/performance.md) for details on configuration and benchmarks.
+
 ## NeurReps 2025 Poster
 ![]()
 
